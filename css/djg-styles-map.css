@@ -1,0 +1,78 @@
+*{
+    padding:0;
+    margin:0;
+    font-size: 16px;
+    border: 1px solid black;
+}
+
+:root{
+    --map-width:1285px;
+    --map-height:908px;
+}
+
+.contenedor{
+     background-color: rgb(148, 255, 127);
+     display: grid;
+     grid-template-areas: 
+     "nav nav map"
+     "panel panel map"
+    ;
+}
+
+.navbar{
+    grid-area: nav;
+    background-color: aqua;
+}
+
+.panel-info{
+    grid-area: panel;
+    background-color: rgb(255, 242, 127);
+}
+
+.caja-mapa{
+    grid-area: map;
+    background-color: rgb(255, 136, 0);
+}
+
+/*
+.planta-baja-terrenos{
+    position: relative;
+    background-image: url(../img/planos/Planta-baja-terrenos.png);
+    height: var( --map-height );
+    width: var( --map-width );
+    background-size: contain;
+    background-repeat: no-repeat;
+    float:right;
+}
+*/
+
+.planta-baja{
+    position: relative;
+    background-image: url(../img/planos/Planta-baja.png);
+    height: var( --map-height );
+    width: var( --map-width );
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.planta-primera{
+    position: relative;
+    background-image: url(../img/planos/Planta-primera.png);
+    height: var( --map-height );
+    width: var( --map-width );
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.planta-segunda{
+    position: relative;
+    background-image: url(../img/planos/Planta-segunda.png);
+    height: var( --map-height );
+    width: var( --map-width );
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+

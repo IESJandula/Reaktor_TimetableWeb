@@ -3,18 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/iniciar-sesion.css">
+    
     <title>Iniciar Sesión - Reaktor</title>
 </head>
-<body>
+<body class="index">
     <script src="js/visualizar-contrasena.js"></script>
-    <nav>
-        <h1>REAKTOR</h1>
-        <a href="#">Planos del centro</a>
-        <a href="#">Consultas sobre docentes</a>
-        <a href="#">Consultas sobre alumnos</a>
-        <a href="#">Información aula convivencia</a>
-    </nav>
+    
+    <header class="header">
+        <div class="logo-header">
+            <a href=""><img src="img/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-menu">
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="menu-icon"><img src="img/menuhamburguesa.svg" alt="menu"></i>
+            </label>
+            <ul>
+                <li><a href="admin.html">Administración</a></li>
+                <li><a href="docentes.html">Profesores</a></li>
+                <li><a href="alumnos.html">Alumnos</a></li>
+                <li><a href="horarios.html">Horarios</a></li>
+                <li><a href="convivencia.html">Convivencia</a></li>
+                <li><a href="planos.html">Mapas</a></li>
+            </ul>
+        </div>
+   </header> 
+
     <main>
         <div class="login">
             <h1>Iniciar Sesión</h1>
@@ -34,8 +50,5 @@
             </form>
         </div>
     </main>
-    <footer>
-        <p>1ºDAM - REAKTOR(2024 - 2025)</p>
-    </footer>
 </body>
 </html>

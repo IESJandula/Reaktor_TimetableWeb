@@ -44,28 +44,33 @@ botonDimension4.onclick = function () {redimensiona('910px','1287px', this)};
 botonDimension5.onclick = function () {redimensiona('992px','1404px', this)};
 botonDimension6.onclick = function () {redimensiona('1984px','2808px', this)};
 
-/* Selector desplegable de dimensiones INICIO */
 
+
+
+
+
+
+/* Selector desplegable de dimensiones INICIO */
 document.querySelector('#selector-dimensiones').addEventListener("change", function() {
-    if (this.value === "res1") {
-        redimensiona('662px','936px', botonDimension1);
+        if (this.value === "res1") {
+            redimensiona('662px','936px', botonDimension1);
+        }
+        else if (this.value === "res2") {
+            redimensiona('777px','1100px', botonDimension2);
+        }
+        else if (this.value === "res3") {
+            redimensiona('827px','1170px', botonDimension3);
+        }
+        else if (this.value === "res4") {
+            redimensiona('910px','1287px', botonDimension4);
+        }
+        else if (this.value === "res5") {
+            redimensiona('992px','1404px', botonDimension5);
+        }
+        else if (this.value === "res6") {
+            redimensiona('1984px','2808px', botonDimension6);
+        }
     }
-    else if (this.value === "res2") {
-        redimensiona('777px','1100px', botonDimension2);
-    }
-    else if (this.value === "res3") {
-        redimensiona('827px','1170px', botonDimension3);
-    }
-    else if (this.value === "res4") {
-        redimensiona('910px','1287px', botonDimension4);
-    }
-    else if (this.value === "res5") {
-        redimensiona('992px','1404px', botonDimension5);
-    }
-    else if (this.value === "res6") {
-        redimensiona('1984px','2808px', botonDimension6);
-    }
-  }
   );
 /* selector desplegable dimensiones FIN */
 
@@ -103,6 +108,7 @@ function reseteaEstadoBoton(elemento){
     elemento.classList.remove("boton-active-temp");  
 }
 
+/*Funcion invocada al pulsar el boton de planta baja. Esta función muestra los bloques de planta baja y oculta los que no son relevantes.*/ 
 function boton0func () {
     planta0.style.display = "block";
     planta1.style.display = "none";
@@ -174,11 +180,13 @@ function boton2funcAux () {
 
   function actualizaEstadoRotacion(){ root.style.setProperty('--status-color','red'); };
 
-boton0.onclick = function() {
+
+boton0.onclick = function() { bt0() };
+function bt0(elemento) {
     boton0funcAux(); actualizaEstadoRotacion();
     reseteaEstadoBoton(boton1);
     reseteaEstadoBoton(boton2);
-    this.classList.add("boton-active");
+    boton0.classList.add("boton-active");
     reseteaEstadoBoton(botonRotacion);
     reseteaEstadoBoton(botonLapso5);
     reseteaEstadoBoton(botonLapso10);
@@ -187,11 +195,12 @@ boton0.onclick = function() {
     reseteaEstadoBoton(botonLapso30); 
 };
 
-boton1.onclick = function() {
+boton1.onclick = function() {bt1(this) }; 
+function bt1(elemento) {
     boton1funcAux(); actualizaEstadoRotacion();
     reseteaEstadoBoton(boton0);
     reseteaEstadoBoton(boton2);
-    this.classList.add("boton-active");
+    boton1.classList.add("boton-active");
     reseteaEstadoBoton(botonRotacion);
     reseteaEstadoBoton(botonLapso5);
     reseteaEstadoBoton(botonLapso10);
@@ -200,12 +209,13 @@ boton1.onclick = function() {
     reseteaEstadoBoton(botonLapso30); 
 };
 
-boton2.onclick = function() {
+boton2.onclick = function() {bt2(this) };
+function bt2 (elemento) {
     boton2funcAux(); 
     actualizaEstadoRotacion();     
     reseteaEstadoBoton(boton1);
     reseteaEstadoBoton(boton0);
-    this.classList.add("boton-active");
+    boton2.classList.add("boton-active");
     reseteaEstadoBoton(botonRotacion);
     reseteaEstadoBoton(botonLapso5);
     reseteaEstadoBoton(botonLapso10);
@@ -268,11 +278,62 @@ const aula05 = document.getElementById("aula0-5");/* 1º dam*/
 const aula07 = document.getElementById("aula0-7");/* 2º dam*/
 const aula09 = document.getElementById("aula0-9");/* plastica*/
 const aula011 = document.getElementById("aula0-11");/* 1º bcs*/
+const aula109 = document.getElementById("aula1-9"); /*1º eso-c*/
+const aula209 = document.getElementById("aula2-9"); /*2º eso-c*/
+
+
+/* GUARRADA ABSURDA SOLO PARA FINES DEMOSTRATIVOS, BORRAR CUANDO APETEZCA*/
+
+const divX = document.getElementById("contenedor-info-box-endpoints");
+const caja = document.getElementById("planta-baja");
+
+/*FUNCION QUE VACÍA EL CONTENEDOR DE INFORMACION  "contenedor-info-box-endpoints" */
+function hogan0(){
+    divX.innerHTML = '<p class="titulo-djg">Información del aula.</p><p><span> Seleccione un aula. </span> </p>';
+    }
+
+/* FUNCION SOLO PARA DEMO - RELLENA CON INFOR EJEMPLO PARA EL CONTENEDOR DE INFORMACION  "contenedor-info-box-endpoints" */
+function hogan1(){
+divX.innerHTML = '<p class="titulo-djg">Información del aula.</p><p><strong>Curso:</strong></p><p> <span> 1º DAM </span> </p><p><strong>Tutor:</strong></p><p>  <span> Vicente Serrano </span> </p> <p><strong>Docente actual:</strong></p><p>  <span> Hulk Hogan </span> </p> <p><strong>Asignatura / módulo actual:</strong></p><p>  <span> Crochet competitivo </span> </p> <p><strong>Cantidad de alumnos:</strong></p><p>  <span> 15 </span> </p>';
+};
+
+/* FUNCION SOLO PARA DEMO - RELLENA CON INFOR EJEMPLO PARA EL CONTENEDOR DE INFORMACION  "contenedor-info-box-endpoints" */
+function hogan2(){
+divX.innerHTML = '<p class="titulo-djg">Información del aula.</p><p><strong>Curso:</strong></p><p> <span> 2º DAM </span> </p><p><strong>Tutor:</strong></p><p>  <span> Francisco Benitez </span> </p> <p><strong>Docente actual:</strong></p><p>  <span> George Orwell </span> </p> <p><strong>Asignatura / módulo actual:</strong></p><p>  <span> Cyber-seguridad y uso ético de los sistemas de vigilancia. </span> </p> <p><strong>Cantidad de alumnos:</strong></p><p>  <span> 1 </span> </p>';
+};
+
+aula05.onclick = function () {hogan1()};
+aula07.onclick = function () {hogan2()};
+
+const poppy = document.getElementById("cuadro");
+const poppy2 = document.getElementById("cuadro2");
+aula05.addEventListener('mouseover',function(){ aparece();});
+aula05.addEventListener('mouseout',function(){ desaparece();});
+aula07.addEventListener('mouseover',function(){ aparece2();});
+aula07.addEventListener('mouseout',function(){ desaparece2();});
+
+function aparece(){
+    poppy.classList.add('aparece');
+}
+
+function desaparece(){
+    poppy.classList.remove('aparece');
+}
+
+function aparece2(){
+    poppy2.classList.add('aparece');
+}
+
+function desaparece2(){
+    poppy2.classList.remove('aparece');
+}
+/* FINAL GUARRADA ABSURDA SOLO PARA FINES DEMOSTRATIVOS, BORRAR CUANDO APETEZCA*/
+
 
 
 /*Array de aulas*/
 /* Este array se usa en el bucle for para el limpiado del estado de enfasis*/
-const aulasArray = [aula01, aula02no, aula02su, aula03, aula05, aula07, aula09, aula011];
+const aulasArray = [aula01, aula02no, aula02su, aula03, aula05, aula07, aula09, aula011, aula109, aula209];
 
 /* Funcion que quita la clase de enfasis a los elementos en aulasArray*/
 function reseteaEnfasisAulas(){
@@ -280,7 +341,7 @@ function reseteaEnfasisAulas(){
         aulasArray[aulaIndice].classList.remove('enfasis-aula');
     }
 }
-
+/*Aplica la clase de .enfasis al aula pasada como parámetro.*/
 function enfatiza(aula){
     aula.classList.add("enfasis-aula");
 }
@@ -296,6 +357,7 @@ selectorCursos.addEventListener("change", function() {
 
     /* Opcion para deseleccionar aulas */
     if (this.value === "0") {
+        hogan0(); /*Esta funcion es solo para mockup. borra cualquier referencia al inigualable Hulk Hogan que veas cuando quieras.*/
         /*La opción 0 no hace nada, es un placeholder para sencillamente resetear el estado del enfasis*/
     }
 
@@ -303,47 +365,74 @@ selectorCursos.addEventListener("change", function() {
     else if (this.value === "aula01") {
         /* Marcamos el elemento html correspondiente */
         enfatiza(aula01);
+        bt0();
     }
     /*2º FPB*/
     else if (this.value === "aula03") {
         /* Marcamos el elemento html correspondiente */
         enfatiza(aula03);
+        bt0();
     }
 
     /*1º DAM*/
     else if (this.value === "aula05") {
         /* Marcamos el elemento html correspondiente */
         enfatiza(aula05);
+        hogan1();
+        bt0();
     }
 
     /*2º DAM*/
     else if (this.value === "aula07") {
         /* Marcamos el elemento html correspondiente */
         enfatiza(aula07);
+        hogan2();
+        bt0();
     }
 
     /*3º DIVER*/
     else if (this.value === "aula02no") {
         /* Marcamos el elemento html correspondiente */
         enfatiza(aula02no);
+        bt0();
     }
 
     /*4º DIVER*/
     else if (this.value === "aula02su") {
         /* Marcamos el elemento html correspondiente */
         enfatiza(aula02su);
+        bt0();
     }
 
     /*Aula de plastica*/
     else if (this.value === "aula09") {
         /* Marcamos el elemento html correspondiente */
         enfatiza(aula09);
+        bt0();
     }
 
     /*1º BCS A*/
     else if (this.value === "aula011") {
     /* Marcamos el elemento html correspondiente */
     enfatiza(aula011);
+    bt0(this);
+    }
+
+    /*1º ESO-c */
+    else if (this.value === "aula109") {
+    /* Marcamos el elemento html correspondiente */
+    enfatiza(aula109);
+    bt1(this);
+
+    }
+
+    /*2º ESO-c */
+    else if (this.value === "aula209") {
+    /* Marcamos el elemento html correspondiente */
+    enfatiza(aula209);
+    bt2(this);
+
     }
     }
+        
   );

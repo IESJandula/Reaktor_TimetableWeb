@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+/* Esta clase solo está para que la demo de la caja de información*/ 
+/* que aparece al hacer hover sobre las aulas funcione. */
+.aparece{
+    display: block !important;
+}
+
+/*borra esto cuando veas*/
+/*Estas son las cajas que aparecen en la demo al hacer hover.*/
+#cuadro, #cuadro2{
+    background-color: rgb(215, 243, 252) !important;
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 99;
+    box-shadow: 10px 10px 10px ;
+    transition: all;
+    transition: 0.2s;
+}
+
+/*A partir de aqui son cosas importantes de estilo*/ 
 * {
     padding: 0;
     margin: 0;
@@ -17,6 +41,7 @@ body{
     --status-color: red;
 }
 
+/*Animación que marca el aula seleccionada en el localizador de cursos.*/
 @keyframes enfasis {
     from {
         background-color: rgba(255, 0, 0, 0);
@@ -28,8 +53,10 @@ body{
     }
   }
 
+
 /*Esta clase es para enfatizar las aulas
- mediante la función de "Localizador curso */
+ mediante la función de "Localizador curso.
+ Funciona invocando la animación de arriba. */
 .enfasis-aula{
     animation-name: enfasis;
     animation-duration: 0.33s;
@@ -37,7 +64,7 @@ body{
     animation-direction: alternate;
 }
 
-
+/*Conjunto de mediaqueries que dan el valor inicial a la variable root para el tamaño de los planos */
 @media screen and (max-width: 4096px) {
     :root {
         --map-width: 2808px;
@@ -80,15 +107,17 @@ body{
     }
 }
 
+/*Da estilo al texto de "Rotación activa"*/
 #rotacionActiva {
     font-weight: bold;
     color: var(--status-color);
 }
-
+/*Da estilo al texto de "Rotación desactivada"*/
 #rotacionNoActiva {
     font-weight: bold;
     color: var(--status-color);
 }
+
 
 #contenedor-botones-plantas{
     display:flex;
@@ -96,6 +125,8 @@ body{
     flex-wrap: wrap;
 }
 
+/*Define las dimensiones del plano en pantalla.*/
+/*NO DIMENSIONAR CON PORCENTAJES O PETARÁ */
 .caja-mapa {
     height: var(--map-height);
     width: var(--map-width);
@@ -126,7 +157,7 @@ body{
     justify-content: center;
     flex-wrap: wrap;
 }
-
+/*Titulos del panel lateral izquierdo.*/
 .titulo-djg{
     font-weight: bold;
     margin-bottom: 5px;
@@ -177,6 +208,8 @@ body{
     margin-top:10px;
     height: auto;
     background-color: rgb(230, 248, 253);
+    transition: 1s;
+    transition: all;
 }
 
 #selector-curso{
@@ -283,6 +316,8 @@ button {
     background-color: rgba(28, 46, 146, 0.5);
     border: 1px solid gray;
 }
+
+/*A PARTIR DE AQUI SE ESTABLECEN LAS COORDENADAS DE LOS DIVS QUE REPRESENTAN LAS AULAS EN LOS PLANOS*/
 
 /*ELEMENTOS AULAS PLANTA BAJA*/
 #aula-2ndo-Guia {

@@ -13,7 +13,42 @@
 </head>
 
 <body>
-
+    <!-- GUARRADA ABSURDA PARA DEMO - BORRAR LUEGO -->
+    <!-- Explicación para Pablo: Debido a la falta de tiempo no he podido implementar ningun tipo de cuadro dinamico que se rellene con valores mediante funciones
+    asi que me he visto obligado a hacer esta tremenda guarrada de poner dos cuadros de ejemplo con valores fijos que según el aula a la que se hace hover
+    aparecen o desaparecen. Estos puedes borrarlos e implementar un cuadro como veas mas deseable basandote en los endpoints que devuelven el listado de alumnos de un aula
+    en un momento determinado. No quería soltarte este marrón pero estamos cortos de tiempo y en semana de examenes, asi que disculpa la guarrada. -->
+    <div id="cuadro">
+        <span style="color: black"> 
+            <hr style="width:100%;text-align:left;margin-left:0">
+        <p><strong>Alumnos en clase</strong></p>
+        <hr style="width:100%;text-align:left;margin-left:0; color:black !important;">
+        </span>
+        <p>Aitor Mentas Fuertes</p>
+        <p>Alex Cremento</p>
+        <p>Ana Tomía</p>
+        <p>Armando Bronca Segura</p>
+    </div>
+    
+    <div id="cuadro2">
+        <span style="color: black"> 
+            <hr style="width:100%;text-align:left;margin-left:0">
+        <p><strong>Alumnos en clase</strong></p>
+        <hr style="width:100%;text-align:left;margin-left:0; color:black !important;">
+        </span>
+        <p>Armando Bronca Segura</p>
+        <p>Ana Tomía</p>
+        <p>Michael Rosal</p>
+        <p>Alex Cremento</p>
+        <p>Aitor Mentas Fuertes</p>
+        <br>
+        <hr>
+        <p style="color: rgb(163, 40, 9);"><strong>Alumnos en el lavabo</strong></p>
+        <hr>
+        <p>Suma Incon Tinentia</p>
+    </div>
+    <!-- GUARRADA ABSURDA PARA DEMO - BORRAR LUEGO -->
+    
     <header class="header">
         <div class="logo-header">
             <a href=""><img src="img/logo.png" alt="logo"></a>
@@ -38,7 +73,7 @@
         <div id="panel">
 
             <div id="panel-selector">
-                <!-- PARA LOS CHICOS DE SEGUNDO -->
+                <!-- PARA PABLO DE SEGUNDO -->
                 <!-- Este formulario es un placeholder. Va alimentado por un endpoint que le dice que cursos existen en el sistema -->
                 <!-- La idea aqui imagino que es identificar las aulas y según el curso seleccionado, marcarlas en el plano con un efecto de colores o algo-->
                 <!-- Disculpad el desorden, si puedo hacer algo avisadme, soy David Jason de primero. -->
@@ -54,11 +89,13 @@
                         <option value="aula02su">4º DIVER </option>
                         <option value="aula09">Aula de Plástica </option>
                         <option value="aula011">1º BCS-A </option>
+                        <option value="aula109">1º ESO-C </option>
+                        <option value="aula209">2º ESO-C </option>
                     </select>           
                 </form>
             </div>
 
-            <!-- INICIO  Botones para seleccion de planta y rotacion automatica  -->
+            <!-- INICIO Botones para seleccion de planta y rotacion automatica  -->
             <div id="contenedor-botones-rotacion">
 
                 <p class="titulo-djg" >Mostrar planta.</p>
@@ -102,10 +139,15 @@
             <!-- FIN  Botones para seleccion de tamaño caja mapa  -->
 
 
+
             <!-- INICIO  Menu desplegable para seleccion de tamaño caja mapa  -->
             <div id="conenetdor-desplegable-dimensiones">
                 <label for="selector-dimensiones" class="titulo-djg">Dimensiones plano.<br/></label>
                 <select name="selector-dimensiones" id="selector-dimensiones">
+                    <!-- Mucho ojo con estos valores, son multiplos de la resolución de las imagenes de los planos
+                    Es necesario que respeten al 100% la proporción de las imagenes en multiplos porque de lo contrario los 
+                    divs posicionados dentro del contenedor padre de los planos se le va la flapa y no tomarán la posicion correcta.
+                    NOTA: Estos valores están tomados de la variable ROOT de CSS y aplicados mediante una función javascript -->
                     <option value="res1">662px * 936px</option>
                     <option value="res2">777px * 1100px</option>
                     <option value="res3">827px * 1170px</option>
@@ -113,6 +155,8 @@
                     <option value="res5">992px * 1404px</option>
                     <option value="res6">1984px * 2808px</option>
                 </select>
+                <!-- Esto es un boton que recarga la página, la idea es que al pinchar en el boton se recargue la página 
+                    reactivando los mediaqueries que dan valor a la variable que define el tamaño de los mapas.-->
                 <a href="planos.html"><button id="restablecer">Restablecer</button></a>
             </div>
             <!-- FIN  Menu desplegable para seleccion de tamaño caja mapa  -->
@@ -120,19 +164,15 @@
             <!-- INICIO  Caja donde se deberá renderizar la información recuperada mediante los endpoints y back-end -->
             <div id="contenedor-info-box-endpoints">
             <p class="titulo-djg">Información del aula.</p>
-                <p><strong>Curso:</strong></p><p> <span> Valor a rellenar mediante query </span> </p>
-                <p><strong>Tutor:</strong></p><p>  <span> Valor a rellenar mediante query </span> </p>
-                <p><strong>Docente actual:</strong></p><p>  <span> Valor a rellenar mediante query </span> </p>
-                <p><strong>Asignatura / módulo actual:</strong></p><p>  <span> Valor a rellenar mediante query </span> </p>
-                <p><strong>Cantidad de alumnos:</strong></p><p>  <span> Valor a rellenar mediante query </span> </p>
+                <p><span> Seleccione un aula. </span> </p>
+
             </div>
             <!-- FIN  Caja donde se deberá renderizar la información recuperada mediante los endpoints y back-end -->
         </div>
         
         <!-- INICIO Sección Mapas del centro -->
         <div class="contenedor">       
-                <!-- <div class="planta-baja-terrenos"></div> -->
-            
+          
                 <div id="planta-baja" class="caja-mapa">
                     <div id="aula-2ndo-Guia"></div>
                     <div id="aula-1ero-Guia-A"></div>
@@ -143,7 +183,7 @@
                     <div id="aula0-2-sur"></div>
                     <div id="aula0-2-norte"></div>
                     <div id="aula0-3"></div>
-                    <div id="aula0-4"></div> <!-- Esta sin usar (?) revisar esto-->
+                    <div id="aula0-4"></div> <!-- Esta sin usar (?) borrar si apetecec -->
                     <div id="aula0-5"></div>
                     <div id="aula0-7"></div>
                     <div id="aula0-9"></div>

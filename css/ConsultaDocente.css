@@ -9,6 +9,9 @@
     font-family: 'Open Sans';
 }
 
+body {
+    background-color: rgb(241, 241, 224);
+}
 
 #docente {
     display: flex;
@@ -17,10 +20,23 @@
 
 #docente-profesor {
     text-align: center;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 12px;
 }
 
 #docente-curso {
     text-align: center;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 12px;
+    padding-top: 1.6%;
+}
+
+#docente-profesor:hover, #docente-curso:hover {
+    box-shadow: 0 0 5px rgb(97, 172, 173);
 }
 
 #hoja-calculo {
@@ -30,13 +46,15 @@
 }
 
 .button-docente {
-    background-color: hsl(0, 0%, 94%);
+    background-color: rgb(31, 155, 203);
+    border-radius: 5px;
+    padding: 3px;
 }
 
 .button-docente:hover {
-    background-color: hsl(0, 0%, 84%);
+    background-color: hsl(197, 74%, 43%);
 }
 
 .button-docente:active {
-    background-color: hsl(0, 0%, 74%);
+    background-color: hsl(197, 74%, 43%);
 }
